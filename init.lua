@@ -1,1 +1,2 @@
-require("config.lazy")
+require("themba.core")
+require("themba.lazy")
