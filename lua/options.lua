@@ -74,4 +74,4 @@ vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
-
+vim.keymap.set('n', '<leader>xx', vim.diagnostic.open_float)
