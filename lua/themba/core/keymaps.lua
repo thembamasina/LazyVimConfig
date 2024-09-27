@@ -1,8 +1,16 @@
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>xx", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- Spave + s saves the file
+vim.keymap.set("n", "<Space>s", ":write<CR>", { desc = "Save the current file" })
+
+-- Move notmally between wrapped lines
+vim.keymap.set("n", "k", "v:count ==0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count ==0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -18,8 +26,8 @@ vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 vim.keymap.set("n", "<leader>p", '"_dp', { desc = "paste over without copying" })
 vim.keymap.set("n", "<leader>P", '"_dP', { desc = "paste over without copying" })
 
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+vim.keymap.set("n", "sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+vim.keymap.set("n", "sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
@@ -34,6 +42,9 @@ vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 -- move lines with alt + j/k
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+
+vim.keymap.set("n", "<Tab>", ">gv")
+vim.keymap.set("n", "<S-Tab>", "<gv")
 
 -- Press 'S' for quick find/replace for the word under the cursor
 vim.keymap.set("n", "S", function()

@@ -16,6 +16,10 @@ return { -- Collection of various small independent plugins/modules
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
+		require("mini.animate").setup({
+			auto_scroll = { enable = false },
+		})
+
 		-- Simple and easy statusline.
 		--  You could remove this setup call if you don't like it,
 		--  and try some other statusline plugin
@@ -34,3 +38,4 @@ return { -- Collection of various small independent plugins/modules
 		--  Check out: https://github.com/echasnovski/mini.nvim
 	end,
 }
+

@@ -30,6 +30,15 @@ vim.opt.backup = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- completion
+vim.opt.completeopt = "menuone,noselect"
+
+vim.opt.autoread = true
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = "↪"
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
@@ -58,6 +67,7 @@ vim.opt.scrolloff = 10
 vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 vim.opt.shiftwidth = 2 -- 2 spaces for indent width
 vim.opt.softtabstop = 2
+
 vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
 vim.opt.smartindent = true
