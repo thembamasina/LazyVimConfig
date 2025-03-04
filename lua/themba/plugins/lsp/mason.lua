@@ -69,7 +69,7 @@ return {
         end,
       },
       html = {},
-      emmet_ls = {},
+      htmlls = {},
       cssls = {},
       lua_ls = {
         settings = {
@@ -94,15 +94,15 @@ return {
 
     mason_lspconfig.setup({
       -- list of servers for mason to install
-      ensure_installed = ensure_installed,
-      -- ensure_installed = {
-      --   "angularls",
-      --   "ts_ls",
-      --   "html",
-      --   "cssls",
-      --   "lua_ls",
-      --   "emmet_ls",
-      -- },
+      -- ensure_installed = ensure_installed,
+      ensure_installed = {
+        "angularls",
+        "ts_ls",
+        "html",
+        "cssls",
+        "lua_ls",
+        -- "emmet_ls",
+      },
     })
 
     mason_tool_installer.setup({

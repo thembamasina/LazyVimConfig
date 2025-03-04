@@ -1,12 +1,16 @@
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>xx", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Spave + s saves the file
-vim.keymap.set("n", "<Space>s", ":write<CR>", { desc = "Save the current file" })
+-- vim.keymap.set("n", "<Space>s", ":write<CR>", { desc = "Save the current file" })
+
+-- Yank to system clipboard
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- Move notmally between wrapped lines
 vim.keymap.set("n", "k", "v:count ==0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -31,6 +35,9 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- vim.keymap.set("n", "<leader>bf", function()
+--   vim.lsp.buf.format({ async = true })
+-- end, { desc = "Format document" })
 vim.keymap.set("n", "<leader>bd", ":bprev<CR>:bdelete #<CR>", { desc = "Close Current Buffer" })
 vim.keymap.set("n", "<leader>bP", "<cmd>:%bd<CR>", { desc = "Close All Buffers" })
 vim.keymap.set("n", "<leader>bC", "<cmd>%bd|e#|bd#<CR>", { desc = "Close All Buffers But This" })

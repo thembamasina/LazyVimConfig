@@ -111,6 +111,29 @@ return { -- LSP Configuration & Plugins
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
+      omnisharp = {
+        capabilities = capabilities,
+        enable_roslyn_analysers = true,
+        enable_import_completion = true,
+        organize_imports_on_format = true,
+        enable_decompilation_support = true,
+        filetypes = { "cs", "vb", "csproj", "sln", "slnx", "props", "csx", "targets" },
+      },
+      eslint = {
+        capabilities = capabilities,
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+        on_new_config = function(config, new_root_dir)
+          config.settings.workspaceFolder = {
+            uri = vim.uri_from_fname(new_root_dir),
+            name = vim.fn.fnamemodify(new_root_dir, ":t"),
+          }
+        end,
+      },
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {
         capabilities = capabilities,
@@ -222,3 +245,4 @@ return { -- LSP Configuration & Plugins
     })
   end,
 }
+

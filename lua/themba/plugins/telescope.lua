@@ -21,11 +21,25 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = {
-        -- mappings = {
-        --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        -- },
+        -- preview = false,
+        path_display = { "truncate" },
+        find_files = {
+          theme = "dropdown",
+        },
+        mappings = {
+          i = {
+            ["<C-j>"] = require("telescope.actions").move_selection_next,
+            ["<C-k>"] = require("telescope.actions").move_selection_previous,
+          },
+          n = {
+            ["<C-j>"] = require("telescope.actions").move_selection_next,
+            ["<C-k>"] = require("telescope.actions").move_selection_previous,
+          },
+        },
         file_ignore_patterns = {
           "node_modules",
+          "dist",
+          ".angular",
           "yarn.lock",
           ".git",
           ".sl",
@@ -34,7 +48,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
         hidden = true,
       },
-      -- pickers = {}
+      pickers = {
+        find_files = {
+          theme = "dropdown",
+        },
+        git_files = {
+          theme = "dropdown",
+        },
+        old_files = {
+          theme = "dropdown",
+        },
+      },
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
