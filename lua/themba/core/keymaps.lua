@@ -5,6 +5,9 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>xx", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+-- Comments
+-- vim.api.nvim_set_keymap.set("n", "<C-_>", "gcc", { noremap = false })
+-- vim.api.nvim_set_keymap.set("v", "<C-_>", "gcc", { noremap = false })
 -- Spave + s saves the file
 -- vim.keymap.set("n", "<Space>s", ":write<CR>", { desc = "Save the current file" })
 
@@ -59,6 +62,6 @@ vim.keymap.set("n", "S", function()
   local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
   vim.api.nvim_feedkeys(keys, "n", false)
 end)
--- vim.keymap.set("n", "<leader>fm", function()
---   require("oil").toggle_float()
--- end)
+
+-- Dbee toggle Dbee
+vim.keymap.set("n", "<leader>db", ":Dbee<CR>", { desc = "Open Dbee" })

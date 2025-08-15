@@ -7,6 +7,7 @@ vim.opt.relativenumber = true
 
 vim.opt.shadafile = "NONE"
 vim.opt.termguicolors = true
+vim.opt.colorcolumn = "100"
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -63,6 +64,7 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+vim.opt.cmdheight = 1
 
 -- Set tab stops
 vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -79,3 +81,5 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- backspace
 vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

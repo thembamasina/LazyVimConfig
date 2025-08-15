@@ -101,6 +101,9 @@ return { -- LSP Configuration & Plugins
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+    local on_attach = require("themba.util.lsp").on_attach
+    local typescript_organise_imports = require("themba.util.lsp").typescript_organise_imports
+
     local servers = {
       -- clangd = {},
       -- gopls = {},
@@ -137,33 +140,23 @@ return { -- LSP Configuration & Plugins
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {
         capabilities = capabilities,
-        root_dir = function(...)
-          return require("lspconfig.util").root_pattern(".git")(...)
-        end,
-        single_file_support = false,
+        on_attach = on_attach,
+        filetypes = {
+          "typescript",
+          "javascript",
+          "typescriptreact",
+          "javascriptreact",
+          "typescript.tsx",
+          "javascript.jsx",
+        },
         settings = {
           typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "literal",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
+            indentStyle = "space",
+            indentSize = 2,
           },
-          javascript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "all",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
+        },
+        commands = {
+          TypeScriptOrganizeImports = typescript_organise_imports,
         },
       },
       angularls = {
@@ -173,6 +166,22 @@ return { -- LSP Configuration & Plugins
         end,
       },
       html = {},
+      emmet_ls = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = {
+          "typescriptreact",
+          "javascriptreact",
+          "javascript",
+          "css",
+          "sass",
+          "scss",
+          "less",
+          "svelte",
+          "vue",
+          "html",
+        },
+      },
       --
       lua_ls = {
         -- cmd = {...},
@@ -245,4 +254,3 @@ return { -- LSP Configuration & Plugins
     })
   end,
 }
-

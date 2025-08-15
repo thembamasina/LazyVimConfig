@@ -69,8 +69,8 @@ return {
         end,
       },
       html = {},
-      htmlls = {},
       cssls = {},
+      postgres_lsp = {},
       lua_ls = {
         settings = {
           Lua = {
@@ -94,16 +94,23 @@ return {
 
     mason_lspconfig.setup({
       -- list of servers for mason to install
-      -- ensure_installed = ensure_installed,
-      ensure_installed = {
-        "angularls",
-        "ts_ls",
-        "html",
-        "cssls",
-        "lua_ls",
-        -- "emmet_ls",
-      },
+      ensure_installed = ensure_installed,
+      -- ensure_installed = {
+      --   "ts_ls",
+      --   "angularls",
+      --   "html",
+      --   "htmlls",
+      --   "cssls",
+      --   "lua_ls",
+      --   "sqlruff",
+      --   -- "emmet_ls",
+      -- },
     })
+
+    -- for server, server_opts in pairs(servers) do
+    --   vim.lsp.enable(server)
+    --   vim.lsp.config(server, server_opts)
+    -- end
 
     mason_tool_installer.setup({
       ensure_installed = {
