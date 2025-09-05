@@ -1,3 +1,6 @@
+if vim.g.vscode then
+  return {}
+end
 return {
   -- "zbirenbaum/copilot.lua",
   -- enabled = false,
@@ -12,8 +15,7 @@ return {
   -- end,
   {
     "github/copilot.vim",
-    config = function()
-
+    config = function() 
     end,
   },
 }

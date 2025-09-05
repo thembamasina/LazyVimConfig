@@ -1,3 +1,6 @@
+if vim.g.vscode then
+  return {}
+end
 return {
   -- NOTE: Yes, you can install new plugins here!
   "mfussenegger/nvim-dap",

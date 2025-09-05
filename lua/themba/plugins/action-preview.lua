@@ -1,3 +1,6 @@
+if vim.g.vscode then
+  return {}
+end
 return {
   -- "aznhe21/actions-preview.nvim",
   -- config = function()
