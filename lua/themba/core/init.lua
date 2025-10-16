@@ -5,3 +5,6 @@ require("themba.core.keymaps")
 if vim.g.vscode then
   vim.cmd([[source C:/Users/Themba/AppData/Local/nvim/vscode/settings.vim]])
 end
+
+-- vim.lsp.enable("tsserver")
+-- vim.lsp.enable("angularls")

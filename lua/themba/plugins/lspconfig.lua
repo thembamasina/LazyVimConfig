@@ -133,27 +133,7 @@ return { -- LSP Configuration & Plugins
         end,
       },
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      ts_ls = {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = {
-          "typescript",
-          "javascript",
-          "typescriptreact",
-          "javascriptreact",
-          "typescript.tsx",
-          "javascript.jsx",
-        },
-        settings = {
-          typescript = {
-            indentStyle = "space",
-            indentSize = 2,
-          },
-        },
-        commands = {
-          TypeScriptOrganizeImports = typescript_organise_imports,
-        },
-      },
+      ts_ls = {},
       angularls = {
         capabilities = capabilities,
       },
